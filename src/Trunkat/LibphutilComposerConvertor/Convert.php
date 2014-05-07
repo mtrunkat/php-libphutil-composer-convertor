@@ -17,8 +17,8 @@ class Convert extends Command
 
     /** All the possible prefixes of classes and functions */
     private $prefixes = array(
-        'class'    => array('(', '{', '[', ' ', ';', '.', '!', "'", '"'),
-        'function' => array('(', '{', '[', ' ', ';', '.', '!', "'", '"'),
+        'class'    => array('(', '{', '[', ' ', ';', '.', '!', "'", '"', ')'),
+        'function' => array('(', '{', '[', ' ', ';', '.', '!', "'", '"', ')'),
     );
     /** All the possible suffixes of classes and functions */
     private $suffixes = array(
