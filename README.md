@@ -25,38 +25,39 @@ How it works
 Example
 -----
 Original use:
+```php
+<?php
+	
+require_once 'path/to/libphutil/src/__phutil_library_init__.php';
 
-	<?php
+$futures = array();
+$futures['test a'] = new ExecFuture('ls');
+$futures['test b'] = new ExecFuture('ls -l -a');
 	
-	require_once 'path/to/libphutil/src/__phutil_library_init__.php';
+foreach (Futures($futures) as $dir => $future) {
+    list($stdout, $stderr) = $future->resolvex();
 	
-	$futures = array();
-	$futures['test a'] = new ExecFuture('ls');
-	$futures['test b'] = new ExecFuture('ls -l -a');
-	
-	foreach (Futures($futures) as $dir => $future) {
-	    list($stdout, $stderr) = $future->resolvex();
-	
-	    print $stdout;
-	}
-	
+    print $stdout;
+}
+```
 Composer version use:
+```php
+<?php
 
-	<?php
-
-	require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 	
-	use Facebook\Libphutil\ExecFuture;
-	use Facebook\Libphutil\Functions\functions;
+use Facebook\Libphutil\ExecFuture;
+use Facebook\Libphutil\Functions\functions;
 	
-	$futures = array();
-	$futures['test a'] = new ExecFuture('ls');
-	$futures['test b'] = new ExecFuture('ls -l -a');
+$futures = array();
+$futures['test a'] = new ExecFuture('ls');
+$futures['test b'] = new ExecFuture('ls -l -a');
 	
-	foreach (functions::Futures($futures) as $dir => $future) {
-	    list($stdout, $stderr) = $future->resolvex();
+foreach (functions::Futures($futures) as $dir => $future) {
+    list($stdout, $stderr) = $future->resolvex();
 	
-	    print $stdout;
-	}
+    print $stdout;
+}
+```
 
 You can see that class **ExecFuture** in now in **Facebook\Libphutil** namespace and function **Futures()** originally located in file **functions.php** is now static method of class **Facebook\Libphutil\Functions\functions**.
