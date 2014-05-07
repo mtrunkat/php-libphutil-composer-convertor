@@ -1,19 +1,19 @@
 Convertor of Libphutil library to  Composer compatible version
 ------
 
-**Libphutil** library (https://github.com/facebook/libphutil) uses it's own autoloader and therefore is not compatible with **Composer** (https://getcomposer.org). This project implements simple command line script to make Libphutil Composer compatible.
+Facebook's [Libphutil](https://github.com/facebook/libphutil) library uses it's own autoloader and therefore is not compatible with [Composer](https://getcomposer.org). This project implements simple command line script to make Libphutil Composer compatible.
 
 The main problem is that Composer doesn't support autoloading of functions so this script converts all the functions to static methods of newly created classes.
 
 This convertor moves all the **classes** into **Facebook\Libphutil** namespace and each function **[functionname]** located in [filename].php converts to static method **Facebook\Libphutil\Functions\[filename]::[functionname]**.
 
-Final library can by found here https://github.com/mtrunkat/php-libphutil-composer.
+Final library as Composer package can by found here https://github.com/mtrunkat/php-libphutil-composer.
 
 ### How it works
 
 * Download Libphutil library from https://github.com/facebook/libphutil
 * Clone or download this project 
-* You need to have Composer installed (https://getcomposer.org/installer)
+* You need to have [Composer](https://getcomposer.org) installed
 * Go to convertor directory and install dependencies via Composer:
 
 		php composer.phrar install
