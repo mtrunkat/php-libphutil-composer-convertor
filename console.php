@@ -2,7 +2,7 @@
 
 require 'vendor/autoload.php';
 
-use Trunkat\LibutilComposerConvertor\Convert;
+use Trunkat\LibphutilComposerConvertor\Convert;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
