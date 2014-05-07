@@ -7,6 +7,7 @@ The main problem is that Composer doesn't support autoloading of functions so th
 
 This convertor moves all the **classes** into **Facebook\Libphutil** namespace and each function **[functionname]** located in [filename].php converts to static method **Facebook\Libphutil\Functions\[filename]::[functionname]**.
 
+Final library can by found here https://github.com/mtrunkat/php-libphutil-composer.
 
 ### How it works
 
