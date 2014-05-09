@@ -133,6 +133,12 @@ class Convert extends Command
 
         file_put_contents("$target/../../function_mapping.txt", $functionLoc);
 
+        // Temporary fixes of some bugs.
+        $file = "$target/BaseHTTPFuture.php";
+        $data = file_get_contents($file);
+        $data = str_replace("matches['\Facebook\Libphutil\Functions\utils::head']", "matches['head']", $data);
+        file_put_contents($file, $data);
+
         $output->writeln('Done.');
     }
 
