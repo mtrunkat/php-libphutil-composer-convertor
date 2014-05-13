@@ -62,6 +62,9 @@ class Convert extends Command
         $fs = new Filesystem();
         $fn = new Finder();
 
+        // Replacements.
+        $replace['final class'] = 'class';
+
         // Clean old and recreate target directory.
         $fs->remove($target);
         $target .= '/' . str_replace('\\', '/', self::NEW_NAMESPACE);
